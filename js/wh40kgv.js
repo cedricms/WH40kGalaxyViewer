@@ -77,8 +77,16 @@ function initGalaxyGeometry() {
   // Set up scene elements
   var geometry = new THREE.SphereGeometry(1, 8, 8);
   var material = new THREE.MeshLambertMaterial( { color: 0xffff00} );
-  mesh = new THREE.Mesh( geometry, material );
-  galaxyGeometry.add( mesh );
+  var mesh = new THREE.Mesh(geometry, material);
+  galaxyGeometry.add(mesh);
+  
+  // Set up scene background sphere
+  var backgroundSphereGeometry = new THREE.SphereGeometry(500, 256, 256);
+  //changeFaceOrientation(backgroundSphereGeometry);
+  var backgroundSphereMaterial = new THREE.MeshLambertMaterial( { color: 0x00ff00} );
+  var backgroundSphereMesh = new THREE.Mesh(backgroundSphereGeometry, backgroundSphereMaterial);
+  //backgroundSphereMesh.doubleSided = true;
+  galaxyGeometry.add(backgroundSphereMesh);
   
   // Set up lighting
   var lightAltitude = 300;
@@ -92,4 +100,24 @@ function initGalaxyGeometry() {
   galaxyGeometry.add(bottomLight);
   
   return galaxyGeometry;
+}
+
+function changeFaceOrientation(geometry){
+  for(var i = 0;i<geometry.faces.length;i++){
+    var face = geometry.faces[ i ];
+    if ( face instanceof THREE.Face3 ) {
+      var tmp = face.b;
+      face.b = face.c;
+      face.c = tmp;
+    }
+	else if ( face instanceof THREE.Face4 ) {
+      var tmp = face.b;
+      face.b = face.d;
+      face.d = tmp;                
+    } // if
+  } // for
+
+  geometry.computeCentroids();
+  geometry.computeFaceNormals();
+  geometry.computeVertexNormals();   
 }
