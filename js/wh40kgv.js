@@ -32,7 +32,7 @@ function loadGalaxyViewer() {
 
 function animate() {
   // Rotate galaxy
-  if (galaxy.rotation.y < -360 * Math.PI / 180) {
+  if (galaxy.rotation.y <= -360 * Math.PI / 180) {
     galaxy.rotation.y = 0;
   } // if
   galaxy.rotation.y -= 0.1 * Math.PI / 180
