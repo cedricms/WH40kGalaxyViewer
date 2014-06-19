@@ -6,7 +6,7 @@ var loader = new THREE.JSONLoader();
 
 function loadGalaxyViewer() {
   // Initialize the render engin
-  renderer = new THREE.WebGLRenderer();
+  renderer = Detector.webgl? new THREE.WebGLRenderer(): new THREE.CanvasRenderer();
 
   // Ig WebGL doesn't work in the nvaigator, we can instead use a canvas
   // renderer = new THREE.CanvasRenderer();
