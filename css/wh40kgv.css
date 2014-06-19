@@ -1,0 +1,31 @@
+body {
+  background-color : #ccc;
+  margin-top: 60px;
+}
+
+.banner-button {
+  background-color: #222;
+  border-color: #222;
+  border-style: none;
+  color: #fff;
+  margin-top: 0.7em;
+}
+
+.elementListPanel {
+  background-color : #999;
+  border-color : #333;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  border-style: solid;
+  border-width : 0.15em;
+  padding-top : 1em;
+}
+
+.viewerPanel {
+  background-color : #666;
+  border-color : #333;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-style: solid;
+  border-width : 0.15em;
+}
