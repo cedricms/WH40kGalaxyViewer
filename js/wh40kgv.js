@@ -1,4 +1,5 @@
 var renderer, scene, camera;
+var galaxy;
 var loader = new THREE.JSONLoader();
 
 function loadGalaxyViewer() {
@@ -21,40 +22,58 @@ function loadGalaxyViewer() {
   camera.rotation.x = -90 * Math.PI / 180
   scene.add(camera);
   
-  var galaxy = initGalaxyGeometry();
+  galaxy = initGalaxyGeometry();
   scene.add(galaxy);
-
-  // Set up lighting
-  var light = new THREE.DirectionalLight(0xffffff, 1.0);
-  light.position.set(0, 0, 400);
-  scene.add(light);
 
   // Render the scene
   renderer.render(scene, camera);
+  animate();
+}
+
+function animate() {
+  // Rotate galaxy
+  if (galaxy.rotation.y < -360 * Math.PI / 180) {
+    galaxy.rotation.y = 0;
+  } // if
+  galaxy.rotation.y -= 0.1 * Math.PI / 180
+  
+  requestAnimationFrame(animate);
+  render();
 }
 
 function render() {
+  //TWEEN.update();
+  renderer.render(scene, camera);
+}
+
+/*function render() {
   animation.update(.01);
   renderer.render(scene, camera);
   requestAnimationFrame(render);
-}
+}*/
 
 function initGalaxyGeometry() {
-  var galaxy = new THREE.Object3D();
+  var galaxyGeometry = new THREE.Object3D();
   
+  // Set up the grid
   var gridSize = 1000;
   var step = 100;
   var gridHelper = new THREE.GridHelper(gridSize, step);
 
   gridHelper.position = new THREE.Vector3( 0, 0, 0 );
   gridHelper.rotation = new THREE.Euler( 0, 0, 0 );
-  galaxy.add( gridHelper );
+  galaxyGeometry.add( gridHelper );
 		
   // Set up scene elements
-  var geometry = new THREE.SphereGeometry(10, 8, 8);
+  var geometry = new THREE.SphereGeometry(100, 8, 8);
   var material = new THREE.MeshLambertMaterial( { color: 0xffff00} );
   mesh = new THREE.Mesh( geometry, material );
-  galaxy.add( mesh );
+  galaxyGeometry.add( mesh );
   
-  return galaxy;
+  // Set up lighting
+  var light = new THREE.DirectionalLight(0xffffff, 1.0);
+  light.position.set(0, 1000, 0);
+  galaxyGeometry.add(light);
+  
+  return galaxyGeometry;
 }
