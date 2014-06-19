@@ -1,5 +1,6 @@
 var renderer, scene, camera;
 var galaxy;
+var galaxySize;
 var loader = new THREE.JSONLoader();
 
 function loadGalaxyViewer() {
@@ -17,11 +18,12 @@ function loadGalaxyViewer() {
   scene = new THREE.Scene();
 
   // Initialize the the camera and put it in the scene
-  camera = new THREE.PerspectiveCamera(50, viewerWidth / viewerHeight, 1, 4000 );
-  camera.position.set(0, 2500, 0);
+  camera = new THREE.PerspectiveCamera(50, viewerWidth / viewerHeight, 1, 400);
+  camera.position.set(0, 150, 0);
   camera.rotation.x = -90 * Math.PI / 180
   scene.add(camera);
   
+  galaxySize = 120;
   galaxy = initGalaxyGeometry();
   scene.add(galaxy);
 
@@ -56,8 +58,8 @@ function initGalaxyGeometry() {
   var galaxyGeometry = new THREE.Object3D();
   
   // Set up the grid
-  var gridSize = 1000;
-  var step = 100;
+  var gridSize = galaxySize / 2;
+  var step = 10;
   var gridHelper = new THREE.GridHelper(gridSize, step);
 
   gridHelper.position = new THREE.Vector3( 0, 0, 0 );
@@ -65,7 +67,7 @@ function initGalaxyGeometry() {
   galaxyGeometry.add( gridHelper );
 		
   // Set up scene elements
-  var geometry = new THREE.SphereGeometry(100, 8, 8);
+  var geometry = new THREE.SphereGeometry(1, 8, 8);
   var material = new THREE.MeshLambertMaterial( { color: 0xffff00} );
   mesh = new THREE.Mesh( geometry, material );
   galaxyGeometry.add( mesh );
