@@ -1,6 +1,7 @@
 var renderer, scene, camera;
 var galaxy;
 var galaxySize;
+var mouseControls;
 var loader = new THREE.JSONLoader();
 
 function loadGalaxyViewer() {
@@ -26,6 +27,10 @@ function loadGalaxyViewer() {
   galaxySize = 120;
   galaxy = initGalaxyGeometry();
   scene.add(galaxy);
+  
+  // Initialize controls
+  mouseControls = new THREE.OrbitControls(camera);
+  mouseControls.addEventListener('change', renderer);
 
   // Render the scene
   renderer.render(scene, camera);
@@ -38,6 +43,9 @@ function animate() {
     galaxy.rotation.y = 0;
   } // if
   galaxy.rotation.y -= 0.1 * Math.PI / 180
+  
+  // Controls
+  //mouseControls.update();
   
   requestAnimationFrame(animate);
   render();
@@ -73,9 +81,15 @@ function initGalaxyGeometry() {
   galaxyGeometry.add( mesh );
   
   // Set up lighting
-  var light = new THREE.DirectionalLight(0xffffff, 1.0);
-  light.position.set(0, 1000, 0);
-  galaxyGeometry.add(light);
+  var lightAltitude = 300;
+  
+  var topLight = new THREE.DirectionalLight(0xffffff, 1.0);
+  topLight.position.set(0, lightAltitude, 0);
+  galaxyGeometry.add(topLight);
+  
+  var bottomLight = new THREE.DirectionalLight(0xffffff, 1.0);
+  bottomLight.position.set(0, -1 * lightAltitude, 0);
+  galaxyGeometry.add(bottomLight);
   
   return galaxyGeometry;
 }
