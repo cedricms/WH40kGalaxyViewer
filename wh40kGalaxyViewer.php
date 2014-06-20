@@ -10,8 +10,8 @@
     <title>Warhammer 40000 Galaxy Viewer</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
- 
-   <link href="css/wh40kgv.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/wh40kgv.css" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Warhammer 40000 Galaxy Viewer</a>
+                <a class="navbar-brand" href="./wh40kGalaxyViewer.php">Warhammer 40000 Galaxy Viewer</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,6 +31,11 @@
                 <ul class="nav navbar-nav">
                     <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#aboutModal">About</button></li>
                     <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#contactModal">Contact</button></li>
+					<li><a href="https://plus.google.com/+C&eacute;dricMariaSube" target="_blank"><i class="fa fa-google-plus fa-lg">&nbsp;Google+</a></i></li>
+					<li><a href="https://twitter.com/cedricmariasube" target="_blank"><i class="fa fa-twitter fa-lg">&nbsp;Twitter</a></i></li>
+					<li><a href="https://github.com/cedricms" target="_blank"><i class="fa fa-github fa-lg">&nbsp;GitHub</a></i></li>
+					<li><a href="https://trello.com/b/50klIQc8/wh40kgalaxyviewer" target="_blank"><i class="fa fa-trello fa-lg">&nbsp;Trello</a></i></li>
+					<li><a href="http://www.cedric.maria-sube.com/" target="_blank"><i class="fa fa-home fa-lg">&nbsp;My site</a></i></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
