@@ -11,7 +11,6 @@
     <meta name="keywords" content="Games Workshop, Warhammer 40000, galaxy, viewer" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="./css/site.css" />
     <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
     <link rel="icon" type="image/png" href="./img/favicon.png" />
     <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />

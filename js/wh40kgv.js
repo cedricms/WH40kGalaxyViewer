@@ -26,7 +26,7 @@ function loadGalaxyViewer() {
   scene.add(camera);
   
   galaxySize = 120;
-  galaxy = initGalaxyGeometry();
+  galaxy = initUniverseGeometry();
   scene.add(galaxy);
   
   // Initialize controls
@@ -63,8 +63,8 @@ function render() {
   requestAnimationFrame(render);
 }*/
 
-function initGalaxyGeometry() {
-  var galaxyGeometry = new THREE.Object3D();
+function initUniverseGeometry() {
+  var universeGeometry = new THREE.Object3D();
   
   // Set up the grid
   var gridSize = galaxySize / 2;
@@ -73,13 +73,19 @@ function initGalaxyGeometry() {
 
   gridHelper.position = new THREE.Vector3( 0, 0, 0 );
   gridHelper.rotation = new THREE.Euler( 0, 0, 0 );
-  galaxyGeometry.add( gridHelper );
+  universeGeometry.add( gridHelper );
 		
   // Set up scene elements
-  var geometry = new THREE.SphereGeometry(1, 8, 8);
-  var material = new THREE.MeshLambertMaterial( { color: 0xffff00} );
+  /*var geometry = new THREE.SphereGeometry(1, 8, 8);
+  var material = new THREE.MeshLambertMaterial({color: 0xffff00});
   var mesh = new THREE.Mesh(geometry, material);
-  galaxyGeometry.add(mesh);
+  universeGeometry.add(mesh);*/
+  
+  // Add galaxy
+  
+  // Add seperate stars
+  var seperateStars = generateSeperateStars();
+  universeGeometry.add(seperateStars);
   
   // Set up scene background sphere
   var backgroundSphereGeometry = new THREE.SphereGeometry(1000, 32, 32);
@@ -89,7 +95,7 @@ function initGalaxyGeometry() {
                                                              });
   var backgroundSphereMesh = new THREE.Mesh(backgroundSphereGeometry, backgroundSphereMaterial);
   backgroundSphereMesh.scale.x = -1;
-  galaxyGeometry.add(backgroundSphereMesh);
+  universeGeometry.add(backgroundSphereMesh);
   
   // Set up lighting
   var lightAltitude = 300;
@@ -98,13 +104,78 @@ function initGalaxyGeometry() {
   topLight.position.set(0, lightAltitude, 0);
   topLight.shadowMapWidth = 1024;
   topLight.shadowMapHeight = 1024;
-  galaxyGeometry.add(topLight);
+  universeGeometry.add(topLight);
   
   var bottomLight = new THREE.DirectionalLight(0xffffff, 1.0);
   bottomLight.position.set(0, -1 * lightAltitude, 0);
   bottomLight.shadowMapWidth = 1024;
   bottomLight.shadowMapHeight = 1024;
-  galaxyGeometry.add(bottomLight);
+  universeGeometry.add(bottomLight);
   
-  return galaxyGeometry;
+  return universeGeometry;
+}
+
+function generateSeperateStars() {
+  var starGroup = new THREE.Object3D();
+  var maxStarSize = 3;
+  var starMaterial = new THREE.MeshBasicMaterial({
+                                                   map: THREE.ImageUtils.loadTexture('./img/texture/star_64_64.png')
+                                                 });
+  var maxStarDistance = 500;
+
+  for ( var i = 0; i < 50; i ++ ) {
+    var star = new THREE.Object3D();
+	var starX = Math.random() * maxStarDistance - (maxStarDistance / 2);
+	var starY = Math.random() * maxStarDistance - (maxStarDistance / 2);
+	var starZ = Math.random() * maxStarDistance - (maxStarDistance / 2);
+	
+	var starSize = Math.random() * maxStarSize;
+    var starGeometry = new THREE.PlaneGeometry(starSize, starSize);
+	
+    var starXFace = new THREE.Mesh(starGeometry, starMaterial);
+    starXFace.position.x = starX;
+    starXFace.position.y = starY;
+    starXFace.position.z = starZ;
+    var starBackXFace = new THREE.Mesh(starGeometry, starMaterial);
+    starBackXFace.position.x = starX;
+    starBackXFace.position.y = starY;
+    starBackXFace.position.z = starZ;
+	
+    var starYFace = new THREE.Mesh(starGeometry, starMaterial);
+    starYFace.position.x = starX;
+    starYFace.position.y = starY;
+    starYFace.position.z = starZ;
+	
+    var starBackYFace = new THREE.Mesh(starGeometry, starMaterial);
+    starBackYFace.position.x = starX;
+    starBackYFace.position.y = starY;
+    starBackYFace.position.z = starZ;
+	
+    var starZFace = new THREE.Mesh(starGeometry, starMaterial);
+    starZFace.position.x = starX;
+    starZFace.position.y = starY;
+    starZFace.position.z = starZ;
+	
+    var starBackZFace = new THREE.Mesh(starGeometry, starMaterial);
+    starBackZFace.position.x = starX;
+    starBackZFace.position.y = starY;
+    starBackZFace.position.z = starZ;
+
+    starXFace.rotation.x = 180 * (Math.PI / 180);
+    starYFace.rotation.y = 90 * (Math.PI / 180);
+    starBackYFace.rotation.y = 270 * (Math.PI / 180);
+    starZFace.rotation.z = 90 * (Math.PI / 180);
+    starBackZFace.rotation.z = 270 * (Math.PI / 180);
+
+	star.add(starXFace);
+	star.add(starBackXFace);
+	star.add(starYFace);
+	star.add(starBackYFace);
+	star.add(starZFace);
+	star.add(starBackZFace);
+	
+    starGroup.add(star);
+  } // for
+
+  return starGroup;
 }
