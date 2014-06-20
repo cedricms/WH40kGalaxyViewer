@@ -38,13 +38,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#aboutModal">About</button></li>
-                    <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#contactModal">Contact</button></li>
-					<li><a href="https://plus.google.com/+C&eacute;dricMariaSube" target="_blank"><i class="fa fa-google-plus fa-lg">&nbsp;Google+</a></i></li>
-					<li><a href="https://twitter.com/cedricmariasube" target="_blank"><i class="fa fa-twitter fa-lg">&nbsp;Twitter</a></i></li>
-					<li><a href="https://github.com/cedricms" target="_blank"><i class="fa fa-github fa-lg">&nbsp;GitHub</a></i></li>
-					<li><a href="https://trello.com/b/50klIQc8/wh40kgalaxyviewer" target="_blank"><i class="fa fa-trello fa-lg">&nbsp;Trello</a></i></li>
-					<li><a href="http://www.cedric.maria-sube.com/" target="_blank"><i class="fa fa-home fa-lg">&nbsp;My site</a></i></li>
+                    <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#aboutModal"><i class="fa fa-info-circle fa-lg"></i>&nbsp;About</button></li>
+                    <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#aboutModal"><i class="fa fa-question-circle fa-lg"></i>&nbsp;Help</button></li>
+                    <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#contactModal"><i class="fa fa-envelope-square fa-lg"></i>&nbsp;Contact</button></li>
+					<li><a href="https://plus.google.com/+C&eacute;dricMariaSube" target="_blank"><i class="fa fa-google-plus fa-lg"></i>&nbsp;Google+</a></li>
+					<li><a href="https://twitter.com/cedricmariasube" target="_blank"><i class="fa fa-twitter fa-lg"></i>&nbsp;Twitter</a></li>
+					<li><a href="https://github.com/cedricms" target="_blank"><i class="fa fa-github fa-lg"></i>&nbsp;GitHub</a></li>
+					<li><a href="https://trello.com/b/50klIQc8/wh40kgalaxyviewer" target="_blank"><i class="fa fa-trello fa-lg"></i>&nbsp;Trello</a></li>
+					<li><a href="http://www.cedric.maria-sube.com/" target="_blank"><i class="fa fa-home fa-lg"></i>&nbsp;My site</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
