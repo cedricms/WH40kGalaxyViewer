@@ -19,7 +19,7 @@ function loadGalaxyViewer() {
   scene = new THREE.Scene();
 
   // Initialize the the camera and put it in the scene
-  camera = new THREE.PerspectiveCamera(50, viewerWidth / viewerHeight, 1, 400);
+  camera = new THREE.PerspectiveCamera(50, viewerWidth / viewerHeight, 1, 475);
   camera.position.set(0, 150, 0);
   camera.rotation.x = -90 * Math.PI / 180
   scene.add(camera);
@@ -81,11 +81,13 @@ function initGalaxyGeometry() {
   galaxyGeometry.add(mesh);
   
   // Set up scene background sphere
-  var backgroundSphereGeometry = new THREE.SphereGeometry(500, 256, 256);
+  var backgroundSphereGeometry = new THREE.SphereGeometry(300, 32, 32);
   //changeFaceOrientation(backgroundSphereGeometry);
-  var backgroundSphereMaterial = new THREE.MeshLambertMaterial( { color: 0x00ff00} );
+  var backgroundSphereMaterial = new THREE.MeshBasicMaterial({
+                                                               map: THREE.ImageUtils.loadTexture('./img/texture/starmap_4096_2048.png')
+                                                             });
   var backgroundSphereMesh = new THREE.Mesh(backgroundSphereGeometry, backgroundSphereMaterial);
-  //backgroundSphereMesh.doubleSided = true;
+  backgroundSphereMesh.scale.x = -1;
   galaxyGeometry.add(backgroundSphereMesh);
   
   // Set up lighting
