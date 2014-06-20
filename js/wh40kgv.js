@@ -6,7 +6,8 @@ var loader = new THREE.JSONLoader();
 
 function loadGalaxyViewer() {
   // Initialize the render engin
-  renderer = Detector.webgl? new THREE.WebGLRenderer(): new THREE.CanvasRenderer();
+  renderer = Detector.webgl? new THREE.WebGLRenderer({antialias: true}): new THREE.CanvasRenderer({antialias: true});
+  renderer.shadowMapType = THREE.PCFSoftShadowMap;
 
   // Ig WebGL doesn't work in the nvaigator, we can instead use a canvas
   // renderer = new THREE.CanvasRenderer();
@@ -95,10 +96,14 @@ function initGalaxyGeometry() {
   
   var topLight = new THREE.DirectionalLight(0xffffff, 1.0);
   topLight.position.set(0, lightAltitude, 0);
+  topLight.shadowMapWidth = 1024;
+  topLight.shadowMapHeight = 1024;
   galaxyGeometry.add(topLight);
   
   var bottomLight = new THREE.DirectionalLight(0xffffff, 1.0);
   bottomLight.position.set(0, -1 * lightAltitude, 0);
+  bottomLight.shadowMapWidth = 1024;
+  bottomLight.shadowMapHeight = 1024;
   galaxyGeometry.add(bottomLight);
   
   return galaxyGeometry;
