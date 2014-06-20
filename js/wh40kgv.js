@@ -19,7 +19,7 @@ function loadGalaxyViewer() {
   scene = new THREE.Scene();
 
   // Initialize the the camera and put it in the scene
-  camera = new THREE.PerspectiveCamera(50, viewerWidth / viewerHeight, 1, 475);
+  camera = new THREE.PerspectiveCamera(50, viewerWidth / viewerHeight, 1, 5000);
   camera.position.set(0, 150, 0);
   camera.rotation.x = -90 * Math.PI / 180
   scene.add(camera);
@@ -81,7 +81,7 @@ function initGalaxyGeometry() {
   galaxyGeometry.add(mesh);
   
   // Set up scene background sphere
-  var backgroundSphereGeometry = new THREE.SphereGeometry(300, 32, 32);
+  var backgroundSphereGeometry = new THREE.SphereGeometry(1000, 32, 32);
   //changeFaceOrientation(backgroundSphereGeometry);
   var backgroundSphereMaterial = new THREE.MeshBasicMaterial({
                                                                map: THREE.ImageUtils.loadTexture('./img/texture/starmap_4096_2048.png')
@@ -102,24 +102,4 @@ function initGalaxyGeometry() {
   galaxyGeometry.add(bottomLight);
   
   return galaxyGeometry;
-}
-
-function changeFaceOrientation(geometry){
-  for(var i = 0;i<geometry.faces.length;i++){
-    var face = geometry.faces[ i ];
-    if ( face instanceof THREE.Face3 ) {
-      var tmp = face.b;
-      face.b = face.c;
-      face.c = tmp;
-    }
-	else if ( face instanceof THREE.Face4 ) {
-      var tmp = face.b;
-      face.b = face.d;
-      face.d = tmp;                
-    } // if
-  } // for
-
-  geometry.computeCentroids();
-  geometry.computeFaceNormals();
-  geometry.computeVertexNormals();   
 }
