@@ -4,8 +4,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<meta name="author" content="C&eacute;dric Maria-Sube" />
+    <meta name="category" content="Warhammer 40000 galaxy viewer" />
+    <meta name="copyright" content="C&eacute;dric Maria-Sube" />
+    <meta name="description" content="Warhammer 40000 galaxy viewer" />
+    <meta name="keywords" content="Games Workshop, Warhammer 40000, galaxy, viewer" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/site.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
+    <link rel="icon" type="image/png" href="./img/favicon.png" />
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
 
     <title>Warhammer 40000 Galaxy Viewer</title>
 
