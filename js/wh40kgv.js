@@ -121,13 +121,16 @@ function generateSeperateStars() {
   var starMaterial = new THREE.MeshBasicMaterial({
                                                    map: THREE.ImageUtils.loadTexture('./img/texture/star_64_64.png')
                                                  });
-  var maxStarDistance = 500;
+  var maxStarDistance = 200;
 
   for ( var i = 0; i < 50; i ++ ) {
     var star = new THREE.Object3D();
 	var starX = Math.random() * maxStarDistance - (maxStarDistance / 2);
+	starX = clampStarPosition(starX);
 	var starY = Math.random() * maxStarDistance - (maxStarDistance / 2);
+	starY = clampStarPosition(starY);
 	var starZ = Math.random() * maxStarDistance - (maxStarDistance / 2);
+	starZ = clampStarPosition(starZ);
 	
 	var starSize = Math.random() * maxStarSize;
     var starGeometry = new THREE.PlaneGeometry(starSize, starSize);
@@ -178,4 +181,22 @@ function generateSeperateStars() {
   } // for
 
   return starGroup;
+}
+
+function clampStarPosition(position) {
+  var clampedPosition = 0;
+  var minStarPosition = 30;
+  
+  if (position > 0) {
+    clampedPosition = position + minStarPosition;
+  }
+  else if (position < 0) {
+    clampedPosition = position - minStarPosition;
+  }
+  else {
+    var seed = Math.random() - 0.5;
+	clampedPosition = clampStarPosition(minStarPosition * seed);
+  } // if
+  
+  return clampedPosition;
 }
