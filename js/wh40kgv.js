@@ -118,8 +118,8 @@ function initUniverseGeometry() {
 function generateSeperateStars() {
   var starGroup = new THREE.Object3D();
   var maxStarSize = 3;
-  var starMaterial = new THREE.MeshBasicMaterial({
-                                                   map: THREE.ImageUtils.loadTexture('./img/texture/star_64_64.png')
+  var starMaterial1 = new THREE.MeshBasicMaterial({
+                                                   map: THREE.ImageUtils.loadTexture('./img/texture/star/star_01_64_64.png')
                                                  });
   var maxStarDistance = 200;
 
@@ -134,6 +134,8 @@ function generateSeperateStars() {
 	
 	var starSize = Math.random() * maxStarSize;
     var starGeometry = new THREE.PlaneGeometry(starSize, starSize);
+	
+	var starMaterial = starMaterial1;
 	
     var starXFace = new THREE.Mesh(starGeometry, starMaterial);
     starXFace.position.x = starX;
