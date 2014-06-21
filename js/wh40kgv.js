@@ -146,7 +146,7 @@ function generateSeperateStars() {
                                                      map: THREE.ImageUtils.loadTexture('./img/texture/star/star_08_64_64.png')
                                                    });
   
-  var maxStarDistance = 300;
+  var maxStarDistance = 250;
 
   var starMaterialCounter = 1;
   for (var i = 0; i < 100; i++) {
@@ -196,7 +196,8 @@ function generateSeperateStars() {
     starBackZFace.position.y = starY;
     starBackZFace.position.z = starZ;
 
-    starXFace.rotation.x = 180 * (Math.PI / 180);
+    starXFace.rotation.x = 90 * (Math.PI / 180);
+    starBackXFace.rotation.x = 270 * (Math.PI / 180);
     starYFace.rotation.y = 90 * (Math.PI / 180);
     starBackYFace.rotation.y = 270 * (Math.PI / 180);
     starZFace.rotation.z = 90 * (Math.PI / 180);
