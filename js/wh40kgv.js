@@ -6,10 +6,11 @@ var loader = new THREE.JSONLoader();
 
 function loadGalaxyViewer() {
   // Initialize the render engin
-  renderer = Detector.webgl? new THREE.WebGLRenderer({antialias: true}): new THREE.CanvasRenderer({antialias: true});
-  renderer.shadowMapType = THREE.PCFSoftShadowMap;
+  renderer = Detector.webgl? new THREE.WebGLRenderer({antialias: false}): new THREE.CanvasRenderer({antialias: false});
+  //renderer = Detector.webgl? new THREE.WebGLRenderer({antialias: true}): new THREE.CanvasRenderer({antialias: true});
+  //renderer.shadowMapType = THREE.PCFSoftShadowMap;
 
-  // Ig WebGL doesn't work in the nvaigator, we can instead use a canvas
+  // If WebGL doesn't work in the nvaigator, we can instead use a canvas
   // renderer = new THREE.CanvasRenderer();
   var viewerWidth= 800;
   var viewerHeight= 600;
@@ -82,6 +83,7 @@ function initUniverseGeometry() {
   universeGeometry.add(mesh);*/
   
   // Add galaxy
+  loadGalaxyModel(universeGeometry);
   
   // Add seperate stars
   var seperateStars = generateSeperateStars();
@@ -100,16 +102,18 @@ function initUniverseGeometry() {
   // Set up lighting
   var lightAltitude = 300;
   
+  var shadowMapSize = 512;
+  
   var topLight = new THREE.DirectionalLight(0xffffff, 1.0);
   topLight.position.set(0, lightAltitude, 0);
-  topLight.shadowMapWidth = 1024;
-  topLight.shadowMapHeight = 1024;
+  topLight.shadowMapWidth = shadowMapSize;
+  topLight.shadowMapHeight = shadowMapSize;
   universeGeometry.add(topLight);
   
   var bottomLight = new THREE.DirectionalLight(0xffffff, 1.0);
   bottomLight.position.set(0, -1 * lightAltitude, 0);
-  bottomLight.shadowMapWidth = 1024;
-  bottomLight.shadowMapHeight = 1024;
+  bottomLight.shadowMapWidth = shadowMapSize;
+  bottomLight.shadowMapHeight = shadowMapSize;
   universeGeometry.add(bottomLight);
   
   return universeGeometry;
@@ -118,7 +122,7 @@ function initUniverseGeometry() {
 function generateSeperateStars() {
   var starGroup = new THREE.Object3D();
   var maxStarSize = 3;
-  var maxStarMaterialCounter = 8;
+  var maxStarMaterialCounter = 6;
   
   var starMaterials = new Array();
   starMaterials[1] = new THREE.MeshBasicMaterial({
@@ -139,17 +143,17 @@ function generateSeperateStars() {
   starMaterials[6] = new THREE.MeshBasicMaterial({
                                                      map: THREE.ImageUtils.loadTexture('./img/texture/star/star_06_64_64.png')
                                                    });
-  starMaterials[7] = new THREE.MeshBasicMaterial({
+  /*starMaterials[7] = new THREE.MeshBasicMaterial({
                                                      map: THREE.ImageUtils.loadTexture('./img/texture/star/star_07_64_64.png')
                                                    });
   starMaterials[8] = new THREE.MeshBasicMaterial({
                                                      map: THREE.ImageUtils.loadTexture('./img/texture/star/star_08_64_64.png')
-                                                   });
+                                                   });*/
   
-  var maxStarDistance = 250;
+  var maxStarDistance = 150;
 
   var starMaterialCounter = 1;
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 35; i++) {
     var star = new THREE.Object3D();
 	var starX = Math.random() * maxStarDistance - (maxStarDistance / 2);
 	starX = clampStarPosition(starX);
@@ -232,4 +236,37 @@ function clampStarPosition(position) {
   } // if
   
   return clampedPosition;
+}
+
+function loadGalaxyModel(parentGroup) {
+  // texture
+  var manager = new THREE.LoadingManager();
+  manager.onProgress = function ( item, loaded, total ) {
+    console.log( item, loaded, total );
+  };
+
+  var texture = new THREE.Texture();
+
+  var imageLoader = new THREE.ImageLoader( manager );
+  imageLoader.load('./obj/galaxy/MilkyWay_512_512.png', function (image) {
+    texture.image = image;
+    texture.needsUpdate = true;
+  } );
+
+  // model
+  var objLoader = new THREE.OBJLoader(manager);
+  objLoader.load('./obj/galaxy/Galaxy.obj', function (object) {
+    object.traverse( function ( child ) {
+      if ( child instanceof THREE.Mesh ) {
+        child.material.map = texture;
+	  } // if
+    } );
+
+    //object.position.y = - 80;
+	
+	var scaleFactor = 13;
+	object.scale.set(scaleFactor, scaleFactor, scaleFactor);
+	
+    parentGroup.add(object);
+  } );
 }
