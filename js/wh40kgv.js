@@ -93,7 +93,8 @@ function initUniverseGeometry() {
   var backgroundSphereGeometry = new THREE.SphereGeometry(1000, 32, 32);
   //changeFaceOrientation(backgroundSphereGeometry);
   var backgroundSphereMaterial = new THREE.MeshBasicMaterial({
-                                                               map: THREE.ImageUtils.loadTexture('./img/texture/starmap_4096_2048.png')
+                                                               map: THREE.ImageUtils.loadTexture('./img/texture/starmap_4096_2048.png'),
+															   wireframe: false
                                                              });
   var backgroundSphereMesh = new THREE.Mesh(backgroundSphereGeometry, backgroundSphereMaterial);
   backgroundSphereMesh.scale.x = -1;
@@ -121,36 +122,52 @@ function initUniverseGeometry() {
 
 function generateSeperateStars() {
   var starGroup = new THREE.Object3D();
-  var maxStarSize = 3;
-  var maxStarMaterialCounter = 6;
+  var maxStarSize = 1.7;
+  var maxStarMaterialCounter = 4;
   
   var starMaterials = new Array();
   starMaterials[1] = new THREE.MeshBasicMaterial({
-                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_01_64_64.png')
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_01_64_64.png'),
+													 transparent: true,
+													 wireframe: false
                                                    });
   starMaterials[2] = new THREE.MeshBasicMaterial({
-                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_02_64_64.png')
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_02_64_64.png'),
+													 transparent: true,
+													 wireframe: false
                                                    });
   starMaterials[3] = new THREE.MeshBasicMaterial({
-                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_03_64_64.png')
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_03_64_64.png'),
+													 transparent: true,
+													 wireframe: false
                                                    });
   starMaterials[4] = new THREE.MeshBasicMaterial({
-                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_04_64_64.png')
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_04_64_64.png'),
+													 transparent: true,
+													 wireframe: false
                                                    });
-  starMaterials[5] = new THREE.MeshBasicMaterial({
-                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_05_64_64.png')
+  /*starMaterials[5] = new THREE.MeshBasicMaterial({
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_05_64_64.png'),
+													 transparent: true,
+													 wireframe: false
                                                    });
   starMaterials[6] = new THREE.MeshBasicMaterial({
-                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_06_64_64.png')
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_06_64_64.png'),
+													 transparent: true,
+													 wireframe: false
                                                    });
-  /*starMaterials[7] = new THREE.MeshBasicMaterial({
-                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_07_64_64.png')
+  starMaterials[7] = new THREE.MeshBasicMaterial({
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_07_64_64.png'),
+													 transparent: true,
+													 wireframe: false
                                                    });
   starMaterials[8] = new THREE.MeshBasicMaterial({
-                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_08_64_64.png')
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_08_64_64.png'),
+													 transparent: true,
+													 wireframe: false
                                                    });*/
   
-  var maxStarDistance = 150;
+  var maxStarDistance = 80;
 
   var starMaterialCounter = 1;
   for (var i = 0; i < 35; i++) {
@@ -222,7 +239,7 @@ function generateSeperateStars() {
 
 function clampStarPosition(position) {
   var clampedPosition = 0;
-  var minStarPosition = 30;
+  var minStarPosition = 10;
   
   if (position > 0) {
     clampedPosition = position + minStarPosition;
@@ -259,6 +276,8 @@ function loadGalaxyModel(parentGroup) {
     object.traverse( function ( child ) {
       if ( child instanceof THREE.Mesh ) {
         child.material.map = texture;
+		child.material.transparent = true;
+		child.material.wireframe = false;
 	  } // if
     } );
 
