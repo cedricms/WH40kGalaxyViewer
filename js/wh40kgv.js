@@ -118,12 +118,38 @@ function initUniverseGeometry() {
 function generateSeperateStars() {
   var starGroup = new THREE.Object3D();
   var maxStarSize = 3;
-  var starMaterial1 = new THREE.MeshBasicMaterial({
-                                                   map: THREE.ImageUtils.loadTexture('./img/texture/star/star_01_64_64.png')
-                                                 });
-  var maxStarDistance = 200;
+  var maxStarMaterialCounter = 8;
+  
+  var starMaterials = new Array();
+  starMaterials[1] = new THREE.MeshBasicMaterial({
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_01_64_64.png')
+                                                   });
+  starMaterials[2] = new THREE.MeshBasicMaterial({
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_02_64_64.png')
+                                                   });
+  starMaterials[3] = new THREE.MeshBasicMaterial({
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_03_64_64.png')
+                                                   });
+  starMaterials[4] = new THREE.MeshBasicMaterial({
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_04_64_64.png')
+                                                   });
+  starMaterials[5] = new THREE.MeshBasicMaterial({
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_05_64_64.png')
+                                                   });
+  starMaterials[6] = new THREE.MeshBasicMaterial({
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_06_64_64.png')
+                                                   });
+  starMaterials[7] = new THREE.MeshBasicMaterial({
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_07_64_64.png')
+                                                   });
+  starMaterials[8] = new THREE.MeshBasicMaterial({
+                                                     map: THREE.ImageUtils.loadTexture('./img/texture/star/star_08_64_64.png')
+                                                   });
+  
+  var maxStarDistance = 300;
 
-  for ( var i = 0; i < 50; i ++ ) {
+  var starMaterialCounter = 1;
+  for (var i = 0; i < 100; i++) {
     var star = new THREE.Object3D();
 	var starX = Math.random() * maxStarDistance - (maxStarDistance / 2);
 	starX = clampStarPosition(starX);
@@ -135,7 +161,11 @@ function generateSeperateStars() {
 	var starSize = Math.random() * maxStarSize;
     var starGeometry = new THREE.PlaneGeometry(starSize, starSize);
 	
-	var starMaterial = starMaterial1;
+	if (starMaterialCounter > maxStarMaterialCounter) {
+	  starMaterialCounter = 1;
+	} // if
+	var starMaterial = starMaterials[starMaterialCounter];
+	starMaterialCounter++;
 	
     var starXFace = new THREE.Mesh(starGeometry, starMaterial);
     starXFace.position.x = starX;
