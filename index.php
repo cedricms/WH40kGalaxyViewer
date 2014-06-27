@@ -61,91 +61,130 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-2 elementListPanel">
-          <div class="panel-group" id="elementListAccordion">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#elementListAccordion" href="#collapseEldar">
-                    Eldar
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseEldar" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <div class="list-group">
-                    <a href="#" class="list-group-item">Alaitoc</a>
-                    <a href="#" class="list-group-item">Altansar</a>
-                    <a href="#" class="list-group-item">Biel-tan</a>
-                    <a href="#" class="list-group-item">IL-Kaithe</a>
-                    <a href="#" class="list-group-item">Iyanden</a>
-                    <a href="#" class="list-group-item">Iybraesil</a>
-                    <a href="#" class="list-group-item">Kaelor</a>
-                    <a href="#" class="list-group-item">Lugganath</a>
-                    <a href="#" class="list-group-item">Mymeara</a>
-                    <a href="#" class="list-group-item">Saim-Hann</a>
-                    <a href="#" class="list-group-item">Ulthw&eacute;</a>
-                    <a href="#" class="list-group-item">Yme-Loc</a>
+		  <form role="form">
+            <div class="panel-group" id="elementListAccordion">
+              <!--div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#elementListAccordion" href="#collapseEldar">
+                      Eldar
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseEldar" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="list-group">
+                      <a href="#" class="list-group-item">Alaitoc</a>
+                      <a href="#" class="list-group-item">Altansar</a>
+                      <a href="#" class="list-group-item">Biel-tan</a>
+                      <a href="#" class="list-group-item">IL-Kaithe</a>
+                      <a href="#" class="list-group-item">Iyanden</a>
+                      <a href="#" class="list-group-item">Iybraesil</a>
+                      <a href="#" class="list-group-item">Kaelor</a>
+                      <a href="#" class="list-group-item">Lugganath</a>
+                      <a href="#" class="list-group-item">Mymeara</a>
+                      <a href="#" class="list-group-item">Saim-Hann</a>
+                      <a href="#" class="list-group-item">Ulthw&eacute;</a>
+                      <a href="#" class="list-group-item">Yme-Loc</a>
+                    </div>
+                  </div>
+                </div>
+              </div-->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#elementListAccordion" href="#collapseImperium">
+                      Imperium
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseImperium" class="panel-collapse collapse">
+                  <div class="panel-body">
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Baal_fr-FR"> Baal
+                        </label>
+					  </div>
+                    </div>
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Caliban_en-US"> Caliban
+                        </label>
+					  </div>
+                    </div>
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Catachan_fr-FR"> Catachan
+                        </label>
+					  </div>
+                    </div>
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Fenris_en-US"> Fenris
+                        </label>
+					  </div>
+                    </div>
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Mars_en-US"> Mars
+                        </label>
+					  </div>
+                    </div>
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Terra_en-US"> Terra
+                        </label>
+					  </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#elementListAccordion" href="#collapseImperium">
-                    Imperium
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseImperium" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <a href="#" class="list-group-item">Caliban</a>
-			      <a href="#" class="list-group-item">Catachan</a>
-                  <a href="#" class="list-group-item">Fenris</a>
-                  <a href="#" class="list-group-item">Mars</a>
-                  <a href="#" class="list-group-item">Terra</a>
+              <!--div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#elementListAccordion" href="#collapseOrks">
+                      Orks
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOrks" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <a href="#" class="list-group-item">Charadon</a>
+			        <a href="#" class="list-group-item">Octarius</a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#elementListAccordion" href="#collapseOrks">
-                    Orks
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseOrks" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <a href="#" class="list-group-item">Charadon</a>
-			      <a href="#" class="list-group-item">Octarius</a>
+	   		  <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#elementListAccordion" href="#collapseTau">
+                      Tau
+                    </a>
+                  </h4>
                 </div>
-              </div>
-            </div>
-			<div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#elementListAccordion" href="#collapseTau">
-                    Tau
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseTau" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <a href="#" class="list-group-item">Bork'an</a>
-			      <a href="#" class="list-group-item">Dal'yth</a>
-			      <a href="#" class="list-group-item">D'yanoi</a>
-			      <a href="#" class="list-group-item">Fal'shia</a>
-			      <a href="#" class="list-group-item">Sa'cea</a>
-			      <a href="#" class="list-group-item">Vior'la</a>
-                  <a href="#" class="list-group-item">Pech</a>
-                  <a href="#" class="list-group-item">T'au</a>
-                  <a href="#" class="list-group-item">Tau'n</a>
-				  <a href="#" class="list-group-item">Vespid</a>
+                <div id="collapseTau" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <a href="#" class="list-group-item">Bork'an</a>
+			        <a href="#" class="list-group-item">Dal'yth</a>
+			        <a href="#" class="list-group-item">D'yanoi</a>
+			        <a href="#" class="list-group-item">Fal'shia</a>
+			        <a href="#" class="list-group-item">Sa'cea</a>
+                    <a href="#" class="list-group-item">Vior'la</a>
+                    <a href="#" class="list-group-item">Pech</a>
+                    <a href="#" class="list-group-item">T'au</a>
+                    <a href="#" class="list-group-item">Tau'n</a>
+	  	            <a href="#" class="list-group-item">Vespid</a>
+                  </div>
                 </div>
-              </div>
+              </div-->
             </div>
-          </div>
+		  </form>
         </div>
         <div class="col-lg-10 text-center viewerPanel">
 	        <div id="galaxyViewer"></div>
