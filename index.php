@@ -196,6 +196,7 @@
     <!-- JavaScript -->
     <script src="./js/jquery-1.11.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+	<script src="./js/polyfill/typedarray.js"></script>
 	<script src="./js/three.min.js"></script>
 	<script src="./js/Detector.js"></script>
 	<script src="./js/controls/OrbitControls.js"></script>
