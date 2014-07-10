@@ -94,7 +94,7 @@ function initUniverseGeometry() {
   //changeFaceOrientation(backgroundSphereGeometry);
   var backgroundSphereMaterial = new THREE.MeshBasicMaterial({
                                                                map: THREE.ImageUtils.loadTexture('./img/texture/starmap_4096_2048.png'),
-															   wireframe: false
+															   wireframe: false, overdraw: true
                                                              });
   var backgroundSphereMesh = new THREE.Mesh(backgroundSphereGeometry, backgroundSphereMaterial);
   backgroundSphereMesh.scale.x = -1;
@@ -278,6 +278,7 @@ function loadGalaxyModel(parentGroup) {
         child.material.map = texture;
 		child.material.transparent = true;
 		child.material.wireframe = false;
+		child.material.overdraw = false;
 	  } // if
     } );
 
