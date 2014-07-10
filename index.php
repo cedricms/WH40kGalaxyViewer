@@ -100,7 +100,7 @@
                 </div>
                 <div id="collapseImperium" class="panel-collapse collapse">
                   <div class="panel-body">
-				    <div class="list-group-item">
+				    <!--<div class="list-group-item">
 				      <div class="checkbox">
                         <label>
                           <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Baal_fr-FR"> Baal
@@ -120,28 +120,28 @@
                           <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Catachan_fr-FR"> Catachan
                         </label>
 					  </div>
-                    </div>
+                    </div>-->
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Fenris_en-US"> Fenris
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Fenris_en-US_-30_20_10"> Fenris
                         </label>
 					  </div>
                     </div>
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Mars_en-US"> Mars
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Mars_en-US_0_30_10"> Mars
                         </label>
 					  </div>
                     </div>
-				    <div class="list-group-item">
+				    <!--<div class="list-group-item">
 				      <div class="checkbox">
                         <label>
                           <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Terra_en-US"> Terra
                         </label>
 					  </div>
-                    </div>
+                    </div>-->
                   </div>
                 </div>
               </div>

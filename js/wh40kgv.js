@@ -4,6 +4,8 @@ var galaxySize;
 var mouseControls;
 var loader = new THREE.JSONLoader();
 
+var planets = new Array();
+
 function loadGalaxyViewer() {
   // Initialize the render engin
   renderer = Detector.webgl? new THREE.WebGLRenderer({antialias: false}): new THREE.CanvasRenderer({antialias: false});
@@ -292,12 +294,37 @@ function loadGalaxyModel(parentGroup) {
 }
 
 function showHideGalaxyElement(galaxyElementCheckbox) {
+  var galaxyElementCheckboxValue = galaxyElementCheckbox.value;
+  var galaxyElementCheckboxSplit = galaxyElementCheckboxValue.split("_");
+  var planetName = galaxyElementCheckboxSplit[0];
+  var language = galaxyElementCheckboxSplit[1];
+  var planetX = galaxyElementCheckboxSplit[2];
+  var planetY = galaxyElementCheckboxSplit[3];
+  var planetZ = galaxyElementCheckboxSplit[4];
+    
   if (galaxyElementCheckbox.checked) {
-    var galaxyElementCheckboxValue = galaxyElementCheckbox.value;
-	var galaxyElementCheckboxSplit = galaxyElementCheckboxValue.split("_");
-	var name = galaxyElementCheckboxSplit[0];
-	var language = galaxyElementCheckboxSplit[1];
-    speakGalaxyElementName(name, language);
+    speakGalaxyElementName(planetName, language);
+    
+    var planetSize = 5;
+    var planetDetail = 16;
+    var planetSphereGeometry = new THREE.SphereGeometry(planetSize, planetDetail, planetDetail);
+    var planetSphereMaterial = new THREE.MeshBasicMaterial({
+                                                               map: THREE.ImageUtils.loadTexture('./img/texture/planet/' + planetName + '.jpg'),
+															   wireframe: false, overdraw: false, opacity: 0.75
+                                                             });
+    var planetSphereMesh = new THREE.Mesh(planetSphereGeometry, planetSphereMaterial);
+    planetSphereMesh.position.x = planetX;
+    planetSphereMesh.position.z = planetY;
+    planetSphereMesh.position.y = planetZ;
+      
+    planets[planetName] = planetSphereMesh;
+
+    galaxy.add(planetSphereMesh);
+  }
+  else {
+    var planetSphereMesh = planets[planetName];
+      
+    galaxy.remove(planetSphereMesh);
   } // if
 }
 
@@ -306,6 +333,7 @@ var voices = window.speechSynthesis.getVoices();
 
 function speakGalaxyElementName(galaxyElementName, galaxyElementLanguage) {
   if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
     // Synthesis support. Make your web apps talk!
     voiceEmitter.voice = voices[10]; // Note: some voices don't support altering params
     voiceEmitter.voiceURI = 'native';
