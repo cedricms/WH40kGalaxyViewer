@@ -198,10 +198,10 @@
     <script src="./js/bootstrap.min.js"></script>
 	<script src="./js/polyfill/typedarray.js"></script>
 	<script src="./js/three.min.js"></script>
+	<script src="./js/tween.min.js"></script>
 	<script src="./js/Detector.js"></script>
 	<script src="./js/controls/OrbitControls.js"></script>
 	<script src="./js/loaders/OBJLoader.js"></script>
-	<!--script src="http://code.createjs.com/tweenjs-0.5.1.min.js"></script-->
 	<script src="./js/wh40kgv.js"></script>
 	
 	<script>

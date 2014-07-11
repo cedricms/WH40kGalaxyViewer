@@ -41,30 +41,19 @@ function loadGalaxyViewer() {
   animate();
 }
 
-function animate() {
-  // Rotate galaxy
-  if (galaxy.rotation.y <= -360 * Math.PI / 180) {
-    galaxy.rotation.y = 0;
-  } // if
-  galaxy.rotation.y -= 0.1 * Math.PI / 180
-  
+function animate() {  
   // Controls
   //mouseControls.update();
   
   requestAnimationFrame(animate);
   render();
+  
+  TWEEN.update();
 }
 
 function render() {
-  //TWEEN.update();
   renderer.render(scene, camera);
 }
-
-/*function render() {
-  animation.update(.01);
-  renderer.render(scene, camera);
-  requestAnimationFrame(render);
-}*/
 
 function initUniverseGeometry() {
   var universeGeometry = new THREE.Object3D();
@@ -77,12 +66,6 @@ function initUniverseGeometry() {
   gridHelper.position = new THREE.Vector3( 0, 0, 0 );
   gridHelper.rotation = new THREE.Euler( 0, 0, 0 );
   universeGeometry.add( gridHelper );
-		
-  // Set up scene elements
-  /*var geometry = new THREE.SphereGeometry(1, 8, 8);
-  var material = new THREE.MeshLambertMaterial({color: 0xffff00});
-  var mesh = new THREE.Mesh(geometry, material);
-  universeGeometry.add(mesh);*/
   
   // Add galaxy
   loadGalaxyModel(universeGeometry);
@@ -119,7 +102,29 @@ function initUniverseGeometry() {
   bottomLight.shadowMapHeight = shadowMapSize;
   universeGeometry.add(bottomLight);
   
+  setupGalaxyTween();
+  
   return universeGeometry;
+}
+
+function setupGalaxyTween() {
+  var galaxyRotation = {y: 0};
+  var targetRotation = {y: -360 * Math.PI / 180};
+  var galaxyRotationDuration = 200 * 1000;
+  var tweenGalaxy = new TWEEN.Tween(galaxyRotation).to(targetRotation, galaxyRotationDuration);
+
+  tweenGalaxy.onUpdate(function(){
+    galaxy.rotation.y = galaxyRotation.y;
+  });
+  
+  tweenGalaxy.onComplete( function () {
+    galaxyRotation.y = 0;
+    tweenGalaxy.start();
+  } );
+
+  TWEEN.removeAll();
+  
+  tweenGalaxy.start();
 }
 
 function generateSeperateStars() {
