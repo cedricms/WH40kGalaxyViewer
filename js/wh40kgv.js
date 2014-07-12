@@ -50,7 +50,7 @@ function animate() {
   requestAnimationFrame(animate);
   render();
   
-  TWEEN.update();
+  //TWEEN.update();
 }
 
 function render() {
@@ -294,6 +294,48 @@ function loadGalaxyModel(parentGroup) {
     //object.position.y = - 80;
 	
 	var scaleFactor = 13;
+	object.scale.set(scaleFactor, scaleFactor, scaleFactor);
+	
+    parentGroup.add(object);
+	
+	loadEyeOfTerrorModel(object);
+  } );
+}
+
+function loadEyeOfTerrorModel(parentGroup) {
+  // texture
+  var manager = new THREE.LoadingManager();
+  manager.onProgress = function ( item, loaded, total ) {
+    console.log( item, loaded, total );
+  };
+
+  var texture = new THREE.Texture();
+
+  var imageLoader = new THREE.ImageLoader( manager );
+  imageLoader.load('./obj/eyeOfTerror/Eye_of_Terror.png', function (image) {
+    texture.image = image;
+    texture.needsUpdate = true;
+  } );
+
+  // model
+  var objLoader = new THREE.OBJLoader(manager);
+  objLoader.load('./obj/eyeOfTerror/Eye_of_Terror.obj', function (object) {
+    object.traverse( function ( child ) {
+      if ( child instanceof THREE.Mesh ) {
+        child.material.map = texture;
+		child.material.transparent = true;
+		child.material.wireframe = false;
+		child.material.overdraw = false;
+	  } // if
+    } );
+
+    object.position.x = -2;
+    object.position.y = 0.175; // height
+	object.position.z = 2.75;
+	
+    object.rotation.y = 90 * Math.PI / 180
+	
+	var scaleFactor = 0.15;
 	object.scale.set(scaleFactor, scaleFactor, scaleFactor);
 	
     parentGroup.add(object);
