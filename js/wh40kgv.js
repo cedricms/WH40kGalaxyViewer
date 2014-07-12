@@ -334,15 +334,15 @@ function showHideGalaxyElement(galaxyElementCheckbox) {
     planetSphereMesh.position.z = planetY;*/
     planetSphereMesh.position.y = planetZ - 1;
       
-    planets[planetName] = planetSphereMesh;
+    planets[planetName] = planetSpotCone;
 	planetSpotCone.add(planetSphereMesh);
 
     galaxy.add(planetSpotCone);
   }
   else {
-    var planetSphereMesh = planets[planetName];
+    var planet = planets[planetName];
       
-    galaxy.remove(planetSphereMesh);
+    galaxy.remove(planet);
   } // if
 }
 
