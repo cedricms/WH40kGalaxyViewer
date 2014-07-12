@@ -50,7 +50,7 @@ function animate() {
   requestAnimationFrame(animate);
   render();
   
-  //TWEEN.update();
+  TWEEN.update();
 }
 
 function render() {
