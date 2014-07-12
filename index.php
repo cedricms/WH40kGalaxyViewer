@@ -124,14 +124,14 @@
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Fenris_en-US_-30_20_10"> Fenris
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Fenris_en-US_-30_20_10_Imperium"> Fenris
                         </label>
 					  </div>
                     </div>
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Mars_en-US_0_30_10"> Mars
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Mars_en-US_0_30_10_Imperium"> Mars
                         </label>
 					  </div>
                     </div>

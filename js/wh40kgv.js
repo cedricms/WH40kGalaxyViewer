@@ -308,25 +308,36 @@ function showHideGalaxyElement(galaxyElementCheckbox) {
   var planetX = galaxyElementCheckboxSplit[2];
   var planetY = galaxyElementCheckboxSplit[3];
   var planetZ = galaxyElementCheckboxSplit[4];
-    
+  var planetAffiliation = galaxyElementCheckboxSplit[5];
+  var planetSpotConeColor = getColorAffiliation(planetAffiliation);
+  
   if (galaxyElementCheckbox.checked) {
     speakGalaxyElementName(planetName, language);
+	
+	var planetSpotConeHeight = planetZ;
+	var planetSpotConeMaterial = new THREE.MeshBasicMaterial( {color: planetSpotConeColor, opacity: 0.5, transparent: true} );
+	var planetSpotCone = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 0, planetSpotConeHeight, 16, 16, true), planetSpotConeMaterial);
+	planetSpotCone.position.x = planetX;
+    planetSpotCone.position.z = planetY;
+    planetSpotCone.position.y = planetZ / 2 + 1.5;
+    planetSpotCone.overdraw = true;
     
     var planetSize = 5;
     var planetDetail = 16;
     var planetSphereGeometry = new THREE.SphereGeometry(planetSize, planetDetail, planetDetail);
     var planetSphereMaterial = new THREE.MeshBasicMaterial({
                                                                map: THREE.ImageUtils.loadTexture('./img/texture/planet/' + planetName + '.jpg'),
-															   wireframe: false, overdraw: false, opacity: 0.75
+															   wireframe: false, overdraw: false, opacity: 0.75, transparent: true
                                                              });
     var planetSphereMesh = new THREE.Mesh(planetSphereGeometry, planetSphereMaterial);
-    planetSphereMesh.position.x = planetX;
-    planetSphereMesh.position.z = planetY;
-    planetSphereMesh.position.y = planetZ;
+    /*planetSphereMesh.position.x = planetX;
+    planetSphereMesh.position.z = planetY;*/
+    planetSphereMesh.position.y = planetZ - 1;
       
     planets[planetName] = planetSphereMesh;
+	planetSpotCone.add(planetSphereMesh);
 
-    galaxy.add(planetSphereMesh);
+    galaxy.add(planetSpotCone);
   }
   else {
     var planetSphereMesh = planets[planetName];
@@ -335,29 +346,43 @@ function showHideGalaxyElement(galaxyElementCheckbox) {
   } // if
 }
 
+function getColorAffiliation(planetAffiliation) {
+  var planetColor;
+  if ('Imperium' === planetAffiliation) {
+    planetColor =  0x6666ff;
+  } // if
+  
+  return planetColor;
+}
+
 var voiceEmitter = new SpeechSynthesisUtterance();
 var voices = window.speechSynthesis.getVoices();
 
 function speakGalaxyElementName(galaxyElementName, galaxyElementLanguage) {
   if ('speechSynthesis' in window) {
     window.speechSynthesis.cancel();
-    // Synthesis support. Make your web apps talk!
-    voiceEmitter.voice = voices[10]; // Note: some voices don't support altering params
-    voiceEmitter.voiceURI = 'native';
-    voiceEmitter.volume = 1; // 0 to 1
-    voiceEmitter.rate = 5; // 0.1 to 10
-    voiceEmitter.pitch = 2; //0 to 2
-    voiceEmitter.text = galaxyElementName;
-    voiceEmitter.lang = galaxyElementLanguage;
+	if (voiceEmitter === undefined) {
+	  // Speech synthesis is not supported
+	}
+	else {
+      // Synthesis support. Make your web apps talk!
+      voiceEmitter.voice = voices[10]; // Note: some voices don't support altering params
+      voiceEmitter.voiceURI = 'native';
+      voiceEmitter.volume = 1; // 0 to 1
+      voiceEmitter.rate = 5; // 0.1 to 10
+      voiceEmitter.pitch = 2; //0 to 2
+      voiceEmitter.text = galaxyElementName;
+      voiceEmitter.lang = galaxyElementLanguage;
 
-    voiceEmitter.onEnd = function(event) {
-      console.log('Finished in ' + event.elapsedTime + ' seconds.');
-    };
+      voiceEmitter.onEnd = function(event) {
+        console.log('Finished in ' + event.elapsedTime + ' seconds.');
+      };
   
-    voiceEmitter.onerror = function(event) {
-      console.log('Error ' + event);
-    };
+      voiceEmitter.onerror = function(event) {
+        console.log('Error ' + event);
+      };
 
-    window.speechSynthesis.speak(voiceEmitter);
+      window.speechSynthesis.speak(voiceEmitter);
+	} // if
   } // if
 }
