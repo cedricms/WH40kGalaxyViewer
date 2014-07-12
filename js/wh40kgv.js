@@ -14,8 +14,10 @@ function loadGalaxyViewer() {
 
   // If WebGL doesn't work in the nvaigator, we can instead use a canvas
   // renderer = new THREE.CanvasRenderer();
-  var viewerWidth= 800;
-  var viewerHeight= 600;
+  /*var viewerWidth= 800;
+  var viewerHeight= 600;*/
+  var viewerWidth= window.innerWidth * 0.55;
+  var viewerHeight= window.innerHeight * 0.7;
   renderer.setSize( viewerWidth, viewerHeight);
   document.getElementById('galaxyViewer').appendChild(renderer.domElement);
 

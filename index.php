@@ -186,7 +186,7 @@
             </div>
 		  </form>
         </div>
-        <div class="col-lg-10 text-center viewerPanel">
+        <div class="col-lg-10 text-center viewerPanel" id="viewerPanel">
 	        <div id="galaxyViewer"></div>
         </div>
       </div>
