@@ -129,6 +129,26 @@ function setupGalaxyTween() {
   tweenGalaxy.start();
 }
 
+function setupPlanetTween(planet) {
+  var planetRotation = {y: 0};
+  var targetRotation = {y: -360 * Math.PI / 180};
+  var planetRotationDuration = 20 * 1000;
+  var tweenPlanet = new TWEEN.Tween(planetRotation).to(targetRotation, planetRotationDuration);
+
+  tweenPlanet.onUpdate(function(){
+    planet.rotation.y = planetRotation.y;
+  });
+  
+  tweenPlanet.onComplete( function () {
+    planetRotation.y = 0;
+    tweenPlanet.start();
+  } );
+
+  //TWEEN.removeAll();
+  
+  tweenPlanet.start();
+}
+
 function generateSeperateStars() {
   var starGroup = new THREE.Object3D();
   var maxStarSize = 1.7;
@@ -358,7 +378,7 @@ function showHideGalaxyElement(galaxyElementCheckbox) {
 	
 	var planetSpotConeHeight = planetZ;
 	var planetSpotConeMaterial = new THREE.MeshBasicMaterial( {color: planetSpotConeColor, opacity: 0.5, transparent: true} );
-	var planetSpotCone = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 0, planetSpotConeHeight, 16, 16, true), planetSpotConeMaterial);
+	var planetSpotCone = new THREE.Mesh(new THREE.CylinderGeometry(2, 0, planetSpotConeHeight, 16, 16, true), planetSpotConeMaterial);
 	planetSpotCone.position.x = planetX;
     planetSpotCone.position.z = planetY;
     planetSpotCone.position.y = planetZ / 2 + 1.5;
@@ -375,6 +395,8 @@ function showHideGalaxyElement(galaxyElementCheckbox) {
     /*planetSphereMesh.position.x = planetX;
     planetSphereMesh.position.z = planetY;*/
     planetSphereMesh.position.y = planetZ - 1;
+	
+	setupPlanetTween(planetSphereMesh);
       
     planets[planetName] = planetSpotCone;
 	planetSpotCone.add(planetSphereMesh);
