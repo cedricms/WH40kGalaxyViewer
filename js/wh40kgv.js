@@ -350,7 +350,7 @@ function loadEyeOfTerrorModel(parentGroup) {
     } );
 
     object.position.x = -2;
-    object.position.y = 0.175; // height
+    object.position.y = 0.2; // height
 	object.position.z = 2.75;
 	
     object.rotation.y = 90 * Math.PI / 180
