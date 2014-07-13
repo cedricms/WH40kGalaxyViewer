@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +10,7 @@
     <meta name="keywords" content="Games Workshop, Warhammer 40000, galaxy, viewer" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
     <link rel="icon" type="image/png" href="./img/favicon.png" />
     <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
@@ -124,14 +124,14 @@
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Fenris_en-US_-30_20_10_Imperium"> Fenris
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Fenris_en-US_-30_20_10_Imperium"> <i class="fa fa-globe"></i> Fenris
                         </label>
 					  </div>
                     </div>
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Mars_en-US_0_30_10_Imperium"> Mars
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Mars_en-US_0_30_10_Imperium"> <i class="fa fa-globe"></i> Mars
                         </label>
 					  </div>
                     </div>
