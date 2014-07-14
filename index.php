@@ -134,6 +134,20 @@
                         </label>
 					  </div>
                     </div>
+					<div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideSegmentum(this);" value="Segmentum Pacificus_en-US_0_30_10"> <i class="fa fa-cube"></i> Segmentum Pacificus
+                        </label>
+					  </div>
+                    </div>
+				    <!--div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideSegmentum(this);" value="Segmentum Solar_en-US_0_30_10"> <i class="fa fa-cube"></i> Segmentum Solar
+                        </label>
+					  </div>
+                    </div-->
 				    <!--<div class="list-group-item">
 				      <div class="checkbox">
                         <label>
@@ -201,7 +215,8 @@
 	<script src="./js/Detector.js"></script>
 	<script src="./js/controls/OrbitControls.js"></script>
 	<script src="./js/loaders/OBJLoader.js"></script>
-	<script src="./js/wh40kgv.js"></script>
+	<script src="./js/wh40kgv/wh40kgv.js"></script>
+	<script src="./js/wh40kgv/wh40kgvSegmentum.js"></script>
 	
 	<script>
 	  // Galaxy viewer initialization

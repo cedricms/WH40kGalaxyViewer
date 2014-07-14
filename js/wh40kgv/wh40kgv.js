@@ -374,7 +374,7 @@ function showHideGalaxyElement(galaxyElementCheckbox) {
   var planetSpotConeColor = getColorAffiliation(planetAffiliation);
   
   if (galaxyElementCheckbox.checked) {
-    speakGalaxyElementName(planetName, language);
+    speakElementName(planetName, language);
 	
 	var planetSpotConeHeight = planetZ;
 	var planetSpotConeMaterial = new THREE.MeshBasicMaterial( {color: planetSpotConeColor, opacity: 0.5, transparent: true} );
@@ -422,7 +422,7 @@ function getColorAffiliation(planetAffiliation) {
 var voiceEmitter = new SpeechSynthesisUtterance();
 var voices = window.speechSynthesis.getVoices();
 
-function speakGalaxyElementName(galaxyElementName, galaxyElementLanguage) {
+function speakElementName(elementName, elementLanguage) {
   if ('speechSynthesis' in window) {
     window.speechSynthesis.cancel();
 	if (voiceEmitter === undefined) {
@@ -435,8 +435,8 @@ function speakGalaxyElementName(galaxyElementName, galaxyElementLanguage) {
       voiceEmitter.volume = 1; // 0 to 1
       voiceEmitter.rate = 5; // 0.1 to 10
       voiceEmitter.pitch = 2; //0 to 2
-      voiceEmitter.text = galaxyElementName;
-      voiceEmitter.lang = galaxyElementLanguage;
+      voiceEmitter.text = elementName;
+      voiceEmitter.lang = elementLanguage;
 
       voiceEmitter.onEnd = function(event) {
         console.log('Finished in ' + event.elapsedTime + ' seconds.');
