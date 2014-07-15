@@ -376,12 +376,23 @@ function showHideGalaxyElement(galaxyElementCheckbox) {
   if (galaxyElementCheckbox.checked) {
     speakElementName(planetName, language);
 	
+	var affiliationMaterial = new THREE.MeshBasicMaterial( {color: planetSpotConeColor, opacity: 0.5, transparent: true} );
+	
+    var markerSize = 1;
+    var markerDetail = 4;
+    var markerSphereGeometry = new THREE.SphereGeometry(markerSize, markerDetail, markerDetail);
+    var markerSphereMesh = new THREE.Mesh(markerSphereGeometry, affiliationMaterial);
+	markerSphereMesh.position.x = planetX;
+    markerSphereMesh.position.z = planetY;
+    markerSphereMesh.position.y = 1.5;
+	
 	var planetSpotConeHeight = planetZ;
 	var planetSpotConeMaterial = new THREE.MeshBasicMaterial( {color: planetSpotConeColor, opacity: 0.5, transparent: true} );
 	var planetSpotCone = new THREE.Mesh(new THREE.CylinderGeometry(2, 0, planetSpotConeHeight, 16, 16, true), planetSpotConeMaterial);
-	planetSpotCone.position.x = planetX;
-    planetSpotCone.position.z = planetY;
-    planetSpotCone.position.y = planetZ / 2 + 1.5;
+	//planetSpotCone.position.x = planetX;
+    //planetSpotCone.position.z = planetY;
+    planetSpotCone.position.y = planetZ / 2;
+	//planetSpotCone.position.y = planetZ / 2 + 1.5;
     planetSpotCone.overdraw = true;
     
     var planetSize = 5;
@@ -398,10 +409,11 @@ function showHideGalaxyElement(galaxyElementCheckbox) {
 	
 	setupPlanetTween(planetSphereMesh);
       
-    planets[planetName] = planetSpotCone;
 	planetSpotCone.add(planetSphereMesh);
-
-    galaxy.add(planetSpotCone);
+    markerSphereMesh.add(planetSpotCone);
+    planets[planetName] = markerSphereMesh;
+	
+	galaxy.add(markerSphereMesh);
   }
   else {
     var planet = planets[planetName];
