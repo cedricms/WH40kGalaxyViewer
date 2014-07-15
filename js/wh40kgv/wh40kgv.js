@@ -50,6 +50,7 @@ function animate() {
   requestAnimationFrame(animate);
   render();
   
+  // Comment the following line to tweek the position of a planet without the galaxy's rotation
   TWEEN.update();
 }
 

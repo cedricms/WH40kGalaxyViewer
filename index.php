@@ -105,15 +105,15 @@
                           <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Baal_fr-FR"> Baal
                         </label>
 					  </div>
-                    </div>
+                    </div-->
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Caliban_en-US"> Caliban
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Caliban_en-US_-37_37_10_Imperium"> <i class="fa fa-globe"></i> Caliban
                         </label>
 					  </div>
                     </div>
-				    <div class="list-group-item">
+				    <!--div class="list-group-item">
 				      <div class="checkbox">
                         <label>
                           <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Catachan_fr-FR"> Catachan
