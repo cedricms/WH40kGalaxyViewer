@@ -16,7 +16,7 @@ function loadGalaxyViewer() {
   // renderer = new THREE.CanvasRenderer();
   /*var viewerWidth= 800;
   var viewerHeight= 600;*/
-  var viewerWidth= window.innerWidth * 0.55;
+  var viewerWidth= window.innerWidth * 0.5;
   var viewerHeight= window.innerHeight * 0.7;
   renderer.setSize( viewerWidth, viewerHeight);
   document.getElementById('galaxyViewer').appendChild(renderer.domElement);
@@ -51,7 +51,7 @@ function animate() {
   render();
   
   // Comment the following line to tweek the position of a planet without the galaxy's rotation
-  TWEEN.update();
+  //TWEEN.update();
 }
 
 function render() {
@@ -406,7 +406,8 @@ function showHideGalaxyElement(galaxyElementCheckbox) {
     var planetSphereMesh = new THREE.Mesh(planetSphereGeometry, planetSphereMaterial);
     /*planetSphereMesh.position.x = planetX;
     planetSphereMesh.position.z = planetY;*/
-    planetSphereMesh.position.y = planetZ - 1;
+    //planetSphereMesh.position.y = planetZ - 1;
+	planetSphereMesh.position.y = planetZ / 2 + planetSize - 1;
 	
 	setupPlanetTween(planetSphereMesh);
       
