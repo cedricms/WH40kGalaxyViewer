@@ -144,7 +144,7 @@
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Mars_en-US_0_30_10_Imperium"> <i class="fa fa-globe"></i> Mars
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Mars_en-US_0_30_5_Imperium"> <i class="fa fa-globe"></i> Mars
                         </label>
 					  </div>
                     </div>
@@ -179,7 +179,7 @@
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Tallarn_en-US_17_17_10_Imperium"> <i class="fa fa-globe"></i> Tallarn
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Tallarn_en-US_17_17_5_Imperium"> <i class="fa fa-globe"></i> Tallarn
                         </label>
 					  </div>
                     </div>
