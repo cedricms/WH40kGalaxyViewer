@@ -109,6 +109,13 @@
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Cadia_en-US_-24_33_10_Imperium"> <i class="fa fa-globe"></i> Cadia
+                        </label>
+					  </div>
+                    </div>
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
                           <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Caliban_en-US_-37_37_10_Imperium"> <i class="fa fa-globe"></i> Caliban
                         </label>
 					  </div>
