@@ -51,7 +51,7 @@ function animate() {
   render();
   
   // Comment the following line to tweek the position of a planet without the galaxy's rotation
-  //TWEEN.update();
+  TWEEN.update();
 }
 
 function render() {
@@ -390,10 +390,7 @@ function showHideGalaxyElement(galaxyElementCheckbox) {
 	var planetSpotConeHeight = planetZ;
 	var planetSpotConeMaterial = new THREE.MeshBasicMaterial( {color: planetSpotConeColor, opacity: 0.5, transparent: true} );
 	var planetSpotCone = new THREE.Mesh(new THREE.CylinderGeometry(2, 0, planetSpotConeHeight, 16, 16, true), planetSpotConeMaterial);
-	//planetSpotCone.position.x = planetX;
-    //planetSpotCone.position.z = planetY;
     planetSpotCone.position.y = planetZ / 2;
-	//planetSpotCone.position.y = planetZ / 2 + 1.5;
     planetSpotCone.overdraw = true;
     
     var planetSize = 5;
@@ -404,9 +401,6 @@ function showHideGalaxyElement(galaxyElementCheckbox) {
 															   wireframe: false, overdraw: false, opacity: 0.75, transparent: true
                                                              });
     var planetSphereMesh = new THREE.Mesh(planetSphereGeometry, planetSphereMaterial);
-    /*planetSphereMesh.position.x = planetX;
-    planetSphereMesh.position.z = planetY;*/
-    //planetSphereMesh.position.y = planetZ - 1;
 	planetSphereMesh.position.y = planetZ / 2 + planetSize - 1;
 	
 	setupPlanetTween(planetSphereMesh);
