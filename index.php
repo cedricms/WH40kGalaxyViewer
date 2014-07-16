@@ -155,6 +155,13 @@
                         </label>
 					  </div>
                     </div>
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Rynn's World_en-US_45_5_15_Imperium"> <i class="fa fa-globe"></i> Rynn's World
+                        </label>
+					  </div>
+                    </div>
 					<div class="list-group-item">
 				      <div class="checkbox">
                         <label>
