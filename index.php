@@ -59,7 +59,7 @@
 	
     <div class="container">
       <div class="row">
-        <div class="col-lg-2 elementListPanel">
+        <div class="col-lg-3 elementListPanel">
 		  <form role="form">
             <div class="panel-group" id="elementListAccordion">
               <!--div class="panel panel-default">
@@ -131,6 +131,13 @@
 				      <div class="checkbox">
                         <label>
                           <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Fenris_en-US_-30_20_10_Imperium"> <i class="fa fa-globe"></i> Fenris
+                        </label>
+					  </div>
+                    </div>
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Macragge_en-US_33_-42_10_Imperium"> <i class="fa fa-globe"></i> Macragge
                         </label>
 					  </div>
                     </div>
@@ -213,7 +220,7 @@
             </div>
 		  </form>
         </div>
-        <div class="col-lg-10 text-center viewerPanel" id="viewerPanel">
+        <div class="col-lg-9 text-center viewerPanel" id="viewerPanel">
 	        <div id="galaxyViewer"></div>
         </div>
       </div>
