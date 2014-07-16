@@ -165,6 +165,13 @@
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Tallarn_en-US_17_17_10_Imperium"> <i class="fa fa-globe"></i> Tallarn
+                        </label>
+					  </div>
+                    </div>
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
                           <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Terra_en-US_0_30_15_Imperium"> <i class="fa fa-globe"></i> Terra
                         </label>
 					  </div>
