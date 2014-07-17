@@ -116,7 +116,7 @@
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Caliban_en-US_-37_37_10_Imperium"> <i class="fa fa-globe"></i> Caliban
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Caliban_en-US_-37_37_15_Imperium"> <i class="fa fa-globe"></i> Caliban
                         </label>
 					  </div>
                     </div>
@@ -130,21 +130,28 @@
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Fenris_en-US_-30_20_10_Imperium"> <i class="fa fa-globe"></i> Fenris
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Deliverance_en-US_35_15_15_Imperium"> <i class="fa fa-globe"></i> Deliverance
                         </label>
 					  </div>
                     </div>
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Macragge_en-US_33_-42_10_Imperium"> <i class="fa fa-globe"></i> Macragge
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Fenris_en-US_-30_20_15_Imperium"> <i class="fa fa-globe"></i> Fenris
                         </label>
 					  </div>
                     </div>
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Mars_en-US_0_30_5_Imperium"> <i class="fa fa-globe"></i> Mars
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Macragge_en-US_33_-42_15_Imperium"> <i class="fa fa-globe"></i> Macragge
+                        </label>
+					  </div>
+                    </div>
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Mars_en-US_0_30_10_Imperium"> <i class="fa fa-globe"></i> Mars
                         </label>
 					  </div>
                     </div>
@@ -179,14 +186,14 @@
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Tallarn_en-US_17_17_5_Imperium"> <i class="fa fa-globe"></i> Tallarn
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Tallarn_en-US_17_17_10_Imperium"> <i class="fa fa-globe"></i> Tallarn
                         </label>
 					  </div>
                     </div>
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Terra_en-US_0_30_15_Imperium"> <i class="fa fa-globe"></i> Terra
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Terra_en-US_0_30_20_Imperium"> <i class="fa fa-globe"></i> Terra
                         </label>
 					  </div>
                     </div>

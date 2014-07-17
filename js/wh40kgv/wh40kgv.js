@@ -438,11 +438,11 @@ function speakElementName(elementName, elementLanguage) {
 	}
 	else {
       // Synthesis support. Make your web apps talk!
-      voiceEmitter.voice = voices[10]; // Note: some voices don't support altering params
-      voiceEmitter.voiceURI = 'native';
+      //voiceEmitter.voice = voices[10]; // Note: some voices don't support altering params
+      //voiceEmitter.voiceURI = 'native';
       voiceEmitter.volume = 1; // 0 to 1
-      voiceEmitter.rate = 5; // 0.1 to 10
-      voiceEmitter.pitch = 2; //0 to 2
+      //voiceEmitter.rate = 5; // 0.1 to 10
+      //voiceEmitter.pitch = 2; //0 to 2
       voiceEmitter.text = elementName;
       voiceEmitter.lang = elementLanguage;
 
