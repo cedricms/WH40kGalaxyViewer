@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="./wh40kGalaxyViewer.php">Warhammer 40000 Galaxy Viewer</a>
+                <a class="navbar-brand" href="./wh40kGalaxyViewer.php">Warhammer 40000 Galaxy Viewer [Beta]</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -38,12 +38,17 @@
                 <ul class="nav navbar-nav">
                     <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#aboutModal"><i class="fa fa-info-circle fa-lg"></i>&nbsp;About</button></li>
                     <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#aboutModal"><i class="fa fa-question-circle fa-lg"></i>&nbsp;Help</button></li>
-                    <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#contactModal"><i class="fa fa-envelope-square fa-lg"></i>&nbsp;Contact</button></li>
-					<li><a href="https://plus.google.com/+C&eacute;dricMariaSube" target="_blank"><i class="fa fa-google-plus fa-lg"></i>&nbsp;Google+</a></li>
-					<li><a href="https://twitter.com/cedricmariasube" target="_blank"><i class="fa fa-twitter fa-lg"></i>&nbsp;Twitter</a></li>
-					<li><a href="https://github.com/cedricms" target="_blank"><i class="fa fa-github fa-lg"></i>&nbsp;GitHub</a></li>
+                    <!--li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#contactModal"><i class="fa fa-envelope-square fa-lg"></i>&nbsp;Contact</button></li-->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow me <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="https://plus.google.com/+C&eacute;dricMariaSube" target="_blank"><i class="fa fa-google-plus fa-lg"></i>&nbsp;Google+</a></li>
+							<li><a href="https://twitter.com/cedricmariasube" target="_blank"><i class="fa fa-twitter fa-lg"></i>&nbsp;Twitter</a></li>
+            				<li><a href="https://github.com/cedricms" target="_blank"><i class="fa fa-github fa-lg"></i>&nbsp;GitHub</a></li>
+            				<li><a href="http://www.cedric.maria-sube.com/" target="_blank"><i class="fa fa-home fa-lg"></i>&nbsp;My site</a></li>
+          				</ul>
+        			</li>
 					<li><a href="https://trello.com/b/50klIQc8/wh40kgalaxyviewer" target="_blank"><i class="fa fa-trello fa-lg"></i>&nbsp;Trello</a></li>
-					<li><a href="http://www.cedric.maria-sube.com/" target="_blank"><i class="fa fa-home fa-lg"></i>&nbsp;My site</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -263,6 +268,7 @@
 	<script src="./js/tween.min.js"></script>
 	<script src="./js/Detector.js"></script>
 	<script src="./js/controls/OrbitControls.js"></script>
+	<!--script src="./js/controls/TrackballControls.js"></script-->
 	<script src="./js/loaders/OBJLoader.js"></script>
 	<script src="./js/wh40kgv/wh40kgv.js"></script>
 	<script src="./js/wh40kgv/wh40kgvSegmentum.js"></script>

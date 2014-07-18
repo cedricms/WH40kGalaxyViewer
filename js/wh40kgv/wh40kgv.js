@@ -36,6 +36,8 @@ function loadGalaxyViewer() {
   
   // Initialize controls
   mouseControls = new THREE.OrbitControls(camera);
+  //mouseControls = new THREE.TrackballControls(camera);
+  //mouseControls = new THREE.OrbitAndPanControls(camera, renderer);
   mouseControls.addEventListener('change', renderer);
 
   // Render the scene
