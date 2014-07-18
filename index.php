@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" href="./img/favicon.png" />
     <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
 
-    <title>Warhammer 40000 Galaxy Viewer</title>
+    <title>Warhammer 40000 Galaxy Viewer [Beta]</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
