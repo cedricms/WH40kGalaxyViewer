@@ -16,8 +16,8 @@ function loadGalaxyViewer() {
   // renderer = new THREE.CanvasRenderer();
   /*var viewerWidth= 800;
   var viewerHeight= 600;*/
-  var viewerWidth= window.innerWidth * 0.5;
-  var viewerHeight= window.innerHeight * 0.7;
+  var viewerWidth= window.innerWidth;
+  var viewerHeight= window.innerHeight - 55;
   renderer.setSize( viewerWidth, viewerHeight);
   document.getElementById('galaxyViewer').appendChild(renderer.domElement);
 

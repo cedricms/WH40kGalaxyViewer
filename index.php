@@ -16,12 +16,16 @@
 
     <title>Warhammer 40000 Galaxy Viewer [Beta]</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/simple-sidebar.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/wh40kgv.css" rel="stylesheet">
+    <link href="./css/wh40kgv.css" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="galaxyElementsToggle">
+			<a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa2 fa-align-justify"></i> Factions</a>
+		</div>
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -30,7 +34,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="./wh40kGalaxyViewer.php">Warhammer 40000 Galaxy Viewer [Beta]</a>
+				<div>
+					<div class="titleBar">				
+						<a class="navbar-brand" href="./wh40kGalaxyViewer.php">Warhammer 40000 Galaxy Viewer [Beta]</a>
+					</div>
+				</div>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -58,14 +66,15 @@
 	<!--
 	  Include about modal here
 	-->
+	
 	<!--
 	  Include contact modal here
 	-->
 	
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 elementListPanel">
-		  <form role="form">
+	<div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <form role="form" class="sidebar-nav elementListPanel">
             <div class="panel-group" id="elementListAccordion">
               <!--div class="panel panel-default">
                 <div class="panel-heading">
@@ -253,13 +262,22 @@
             </div>
 		  </form>
         </div>
+	
+    <!--div class="container">
+      <div class="row">
+        <div class="col-lg-3 elementListPanel">
+		  
+        </div>
         <div class="col-lg-9 text-center viewerPanel" id="viewerPanel">
-	        <div id="galaxyViewer"></div>
+	        
         </div>
       </div>
-    </div>
+    </div-->
     <!-- /.container -->
-
+	  <div id="galaxyViewer"></div>
+    </div>
+	<!-- /.wrapper -->
+	
     <!-- JavaScript -->
     <script src="./js/jquery-1.11.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
@@ -272,6 +290,16 @@
 	<script src="./js/loaders/OBJLoader.js"></script>
 	<script src="./js/wh40kgv/wh40kgv.js"></script>
 	<script src="./js/wh40kgv/wh40kgvSegmentum.js"></script>
+	
+    <!-- Menu Toggle Script -->
+    <script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	
+		$("#wrapper").toggleClass("toggled");
+    </script>
 	
 	<script>
 	  // Galaxy viewer initialization
