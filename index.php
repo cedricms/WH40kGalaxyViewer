@@ -36,7 +36,7 @@
                 </button>
 				<div>
 					<div class="titleBar">				
-						<a class="navbar-brand" href="./wh40kGalaxyViewer.php">Warhammer 40000 Galaxy Viewer [Beta]</a>
+						<a class="navbar-brand" href="#">Warhammer 40000 Galaxy Viewer [Beta]</a>
 					</div>
 				</div>
             </div>
