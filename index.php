@@ -22,7 +22,7 @@
     <link href="./css/wh40kgv.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="galaxyElementsToggle">
 			<a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa2 fa-align-justify"></i> Factions</a>
 		</div>
@@ -62,7 +62,7 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    </nav>
+    </div>
 	<!--
 	  Include about modal here
 	-->

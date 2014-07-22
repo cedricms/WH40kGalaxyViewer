@@ -1,10 +1,14 @@
 var renderer, scene, camera;
+var galaxyViewer;
+var canvas;
 var galaxy;
 var galaxySize;
 var mouseControls;
 var loader = new THREE.JSONLoader();
 
 var planets = new Array();
+
+var headerBarHeight = 56;
 
 function loadGalaxyViewer() {
   // Initialize the render engin
@@ -17,9 +21,11 @@ function loadGalaxyViewer() {
   /*var viewerWidth= 800;
   var viewerHeight= 600;*/
   var viewerWidth= window.innerWidth;
-  var viewerHeight= window.innerHeight - 55;
-  renderer.setSize( viewerWidth, viewerHeight);
-  document.getElementById('galaxyViewer').appendChild(renderer.domElement);
+  var viewerHeight= window.innerHeight - headerBarHeight;
+  renderer.setSize(viewerWidth, viewerHeight);
+  canvas = renderer.domElement
+  galaxyViewer = document.getElementById('galaxyViewer');
+  galaxyViewer.appendChild(canvas);
 
   // Initialize the scene
   scene = new THREE.Scene();
@@ -27,12 +33,15 @@ function loadGalaxyViewer() {
   // Initialize the the camera and put it in the scene
   camera = new THREE.PerspectiveCamera(50, viewerWidth / viewerHeight, 1, 5000);
   camera.position.set(0, 150, 0);
-  camera.rotation.x = -90 * Math.PI / 180
+  camera.rotation.x = -90 * Math.PI / 180;
   scene.add(camera);
   
   galaxySize = 120;
   galaxy = initUniverseGeometry();
   scene.add(galaxy);
+  
+  // Resize listener
+  window.addEventListener('resize', onWindowResize, false);
   
   // Initialize controls
   mouseControls = new THREE.OrbitControls(camera);
@@ -43,6 +52,16 @@ function loadGalaxyViewer() {
   // Render the scene
   renderer.render(scene, camera);
   animate();
+}
+
+function onWindowResize() {
+  var viewerWidth= window.innerWidth;
+  var viewerHeight= window.innerHeight - headerBarHeight;
+  
+  camera.aspect = viewerWidth / viewerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(viewerWidth, viewerHeight);
 }
 
 function animate() {  
