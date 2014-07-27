@@ -186,6 +186,13 @@
 					<div class="list-group-item">
 				      <div class="checkbox">
                         <label>
+                          <input type="checkbox" onclick="showHideSegmentum(this);" value="Segmentum Obscurus_en-US_0_30_10"> <i class="fa fa-cube"></i> Segmentum Obscurus
+                        </label>
+					  </div>
+                    </div>
+					<div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
                           <input type="checkbox" onclick="showHideSegmentum(this);" value="Segmentum Pacificus_en-US_0_30_10"> <i class="fa fa-cube"></i> Segmentum Pacificus
                         </label>
 					  </div>

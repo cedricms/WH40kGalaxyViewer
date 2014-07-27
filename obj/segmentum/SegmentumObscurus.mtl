@@ -1,0 +1,13 @@
+# Blender MTL File: 'SegmentumObscurus.blend'
+# Material Count: 1
+
+newmtl SegmentumObscurus
+Ns 17.647059
+Ka 0.000000 0.000000 0.000000
+Kd 0.165498 0.341900 0.640000
+Ks 0.100000 0.100000 0.100000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd SegmentumObscurusUV.png
+map_d SegmentumObscurusUV.png
