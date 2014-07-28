@@ -221,7 +221,7 @@
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Valhalla_en-US_-30_-5_10_Imperium"> <i class="fa fa-globe"></i> Valhalla
+                          <input type="checkbox" onclick="showHideGalaxyElement(this);" value="Valhalla_en-US_-20_5_10_Imperium"> <i class="fa fa-globe"></i> Valhalla
                         </label>
 					  </div>
                     </div>
