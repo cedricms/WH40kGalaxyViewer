@@ -6,9 +6,9 @@ function showHideSegmentum(segmentumCheckbox) {
   var segmentumName = segmentumCheckboxSplit[0];
   var segmentumShortName = segmentumName.replace(/ /g,'');
   var language = segmentumCheckboxSplit[1];
-  var planetX = segmentumCheckboxSplit[2];
+  /*var planetX = segmentumCheckboxSplit[2];
   var planetY = segmentumCheckboxSplit[3];
-  var planetZ = segmentumCheckboxSplit[4];
+  var planetZ = segmentumCheckboxSplit[4];*/
   
   if (segmentumCheckbox.checked) {
     speakElementName(segmentumName, language);
