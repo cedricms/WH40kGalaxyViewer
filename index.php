@@ -197,13 +197,13 @@
                         </label>
 					  </div>
                     </div>
-				    <!--div class="list-group-item">
+				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
-                          <input type="checkbox" onclick="showHideSegmentum(this);" value="Segmentum Solar_en-US_0_30_10"> <i class="fa fa-cube"></i> Segmentum Solar
+                          <input type="checkbox" onclick="showHideSegmentum(this);" value="Segmentum Solar_en-US"> <i class="fa fa-cube"></i> Segmentum Solar
                         </label>
 					  </div>
-                    </div-->
+                    </div>
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
