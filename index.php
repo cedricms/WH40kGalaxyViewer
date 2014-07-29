@@ -225,6 +225,13 @@
                         </label>
 					  </div>
                     </div>
+				    <div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideSegmentum(this);" value="Ultima Segmentum_en-US"> <i class="fa fa-cube"></i> Ultima Segmentum
+                        </label>
+					  </div>
+                    </div>
                   </div>
                 </div>
               </div>
