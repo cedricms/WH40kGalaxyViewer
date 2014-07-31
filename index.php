@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" href="./img/favicon.png" />
     <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
 
-    <title>Warhammer 40000 Galaxy Viewer [Beta]</title>
+    <title>Warhammer 40000 Galaxy Viewer [0.8.0]</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/simple-sidebar.css" rel="stylesheet">
@@ -36,7 +36,7 @@
                 </button>
 				<div>
 					<div class="titleBar">				
-						<a class="navbar-brand" href="#">Warhammer 40000 Galaxy Viewer [Beta]</a>
+						<a class="navbar-brand" href="#">Warhammer 40000 Galaxy Viewer [0.8.0]</a>
 					</div>
 				</div>
             </div>
