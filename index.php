@@ -204,6 +204,13 @@
                         </label>
 					  </div>
                     </div>
+					<div class="list-group-item">
+				      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" onclick="showHideSegmentum(this);" value="Segmentum Tempestus_en-US"> <i class="fa fa-cube"></i> Segmentum Tempestus
+                        </label>
+					  </div>
+                    </div>
 				    <div class="list-group-item">
 				      <div class="checkbox">
                         <label>
