@@ -301,6 +301,7 @@
 	
     <!-- JavaScript -->
     <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="./js/jquery.i18n.properties-min-1.0.9.js" type="text/javascript" charset="utf-8"></script>
     <script src="./js/bootstrap.min.js"></script>
 	<script src="./js/polyfill/typedarray.js"></script>
 	<script src="./js/three.min.js"></script>
@@ -310,6 +311,7 @@
 	<!--script src="./js/controls/TrackballControls.js"></script-->
 	<script src="./js/loaders/OBJLoader.js"></script>
 	<script src="./js/wh40kgv/wh40kgv.js"></script>
+	<script src="./js/wh40kgv/wh40kgvLang.js"></script>
 	<script src="./js/wh40kgv/wh40kgvSegmentum.js"></script>
 	
     <!-- Menu Toggle Script -->
@@ -320,6 +322,13 @@
 		});
 	
 		$("#wrapper").toggleClass("toggled");
+    </script>
+	
+	<script>
+	  // load I18N bundles
+      jQuery(document).ready(function() {
+    	initLanguages();
+	  });
     </script>
 	
 	<script>
