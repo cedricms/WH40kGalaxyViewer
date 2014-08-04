@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" href="./img/favicon.png" />
     <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
 
-    <title>Warhammer 40000 Galaxy Viewer [0.8.0]</title>
+    <title>Warhammer 40,000 Galaxy Viewer [0.8.0]</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/simple-sidebar.css" rel="stylesheet">
@@ -36,7 +36,7 @@
                 </button>
 				<div>
 					<div class="titleBar">				
-						<a class="navbar-brand" href="#">Warhammer 40000 Galaxy Viewer [0.8.0]</a>
+						<a class="navbar-brand" href="#">Warhammer 40,000 Galaxy Viewer [0.8.0]</a>
 					</div>
 				</div>
             </div>
@@ -44,19 +44,20 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#aboutModal"><i class="fa fa-info-circle fa-lg"></i>&nbsp;About</button></li>
-                    <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#aboutModal"><i class="fa fa-question-circle fa-lg"></i>&nbsp;Help</button></li>
+                    <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#aboutModal" id="aboutButton"></button></li>
+                    <li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#aboutModal" id="helpButton"></button></li>
                     <!--li><button class="btn btn-default banner-button" data-toggle="modal" data-target="#contactModal"><i class="fa fa-envelope-square fa-lg"></i>&nbsp;Contact</button></li-->
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow me <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="followMeButton"></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="https://plus.google.com/+C&eacute;dricMariaSube" target="_blank"><i class="fa fa-google-plus fa-lg"></i>&nbsp;Google+</a></li>
 							<li><a href="https://twitter.com/cedricmariasube" target="_blank"><i class="fa fa-twitter fa-lg"></i>&nbsp;Twitter</a></li>
             				<li><a href="https://github.com/cedricms" target="_blank"><i class="fa fa-github fa-lg"></i>&nbsp;GitHub</a></li>
-            				<li><a href="http://www.cedric.maria-sube.com/" target="_blank"><i class="fa fa-home fa-lg"></i>&nbsp;My site</a></li>
+            				<li><a href="http://www.cedric.maria-sube.com/" target="_blank" id="mySiteButton"></a></li>
           				</ul>
         			</li>
 					<li><a href="https://trello.com/b/50klIQc8/wh40kgalaxyviewer" target="_blank"><i class="fa fa-trello fa-lg"></i>&nbsp;Trello</a></li>
+					<!--li><button type="button" class="btn btn-default  banner-button" data-toggle="modal" data-target="#languageModal" id="languagesParameter"></button></li-->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -64,8 +65,17 @@
         <!-- /.container -->
     </nav>
 	<!--
-	  Include about modal here
+	  Language modal
 	-->
+	<?php
+      include('aboutModal.php');
+    ?>
+	<!--
+	  About modal
+	-->
+	<?php
+      include('aboutModal.php');
+    ?>
 	
 	<!--
 	  Include contact modal here

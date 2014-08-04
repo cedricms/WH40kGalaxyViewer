@@ -33,8 +33,30 @@ function loadBundles(lang) {
 	mode:'both',
 	language:lang, 
 	callback: function() {
-      jQuery.i18n.prop('jeuCreeParMessage');
-      document.getElementById('jeuCreePar').innerHTML = jeuCreeParMessage;
+	  // Main page
+      jQuery.i18n.prop('aboutButtonMessage');
+      document.getElementById('aboutButton').innerHTML = '<i class="fa fa-info-circle fa-lg"></i>&nbsp;' + aboutButtonMessage;
+      jQuery.i18n.prop('helpButtonMessage');
+      document.getElementById('helpButton').innerHTML = '<i class="fa fa-question-circle fa-lg"></i>&nbsp;' + helpButtonMessage;
+      jQuery.i18n.prop('followMeButtonMessage');
+      document.getElementById('followMeButton').innerHTML = followMeButtonMessage + '&nbsp;<span class="caret"></span>';
+      jQuery.i18n.prop('mySiteButtonMessage');
+      document.getElementById('mySiteButton').innerHTML = '<i class="fa fa-home fa-lg"></i>&nbsp;' + mySiteButtonMessage;
+      jQuery.i18n.prop('languagesParameterMessage');
+      document.getElementById('languagesParameter').innerHTML = '<i class="fa fa-flag"></i>&nbsp;' + languagesParameterMessage;
+	  
+	  // Dialogs
+	  jQuery.i18n.prop('closeButtonMessage');
+      document.getElementById('closeButton').innerHTML = closeButtonMessage;
+	  
+	  // About dialog
+      jQuery.i18n.prop('aboutModalTitleMessage');
+      document.getElementById('aboutModalTitle').innerHTML = aboutModalTitleMessage;
+      jQuery.i18n.prop('aboutDiscriptionMessage');
+      document.getElementById('aboutDiscription').innerHTML = aboutDiscriptionMessage;
+      jQuery.i18n.prop('aboutFanMessage');
+      document.getElementById('aboutFan').innerHTML = aboutFanMessage;
+	  
     }
   });
 }
